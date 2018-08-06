@@ -1,5 +1,3 @@
 warrior;str.25,sta.20,int.-15,;kick,bash,critcal strike,crippling blow,;
 cleric;wis.15,sta.10,str.5,;heal,cure,bless,smite,;
 wizard;int.30,dex.10,str.-15;shock,burn,freeze,hold,;
-
-

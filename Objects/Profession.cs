@@ -24,13 +24,6 @@ namespace Objects
 
             Populate(Parse(';', ref properties), this.AttributeModifers);
             Populate(Parse(';', ref properties), this.Abilities);
-            /*
-            properties = properties.Substring(properties.IndexOf(";") + 1);
-            Populate(properties, this.AttributeModifers);
-
-            properties = properties.Substring(properties.IndexOf(";") + 1);
-            Populate(properties, this.Abilities);
-            */
         }
 
         private void Populate(string input, Dictionary<string, object> item)
