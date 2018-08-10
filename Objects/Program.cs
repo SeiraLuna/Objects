@@ -35,8 +35,7 @@ namespace Objects
                 {
                     string filePath = command.Substring(command.IndexOf(" ") + 1);
                     command = command.Substring(0, command.IndexOf(" "));
-                    int commandIndex = UserCommand.CommandList.IndexOf((from x in UserCommand.CommandList where x.Equals(command, StringComparison.OrdinalIgnoreCase) select x).First());
-                    //if (UserCommand.CommandList.Any(x => x.Equals(command, StringComparison.OrdinalIgnoreCase)))          
+                    int commandIndex = UserCommand.CommandList.IndexOf((from x in UserCommand.CommandList where x.Equals(command, StringComparison.OrdinalIgnoreCase) select x).First());         
                     Commands.GetType().GetMethod(UserCommand.CommandList[commandIndex], new Type[] { typeof(string) }).Invoke(Commands, new object[] { filePath });
                 }
                 else
@@ -49,6 +48,12 @@ namespace Objects
             {
                 Console.WriteLine("Invalid input");
             } 
+        }
+
+        private static void ParseCommand (ref List<string> commandSet, string commandString)
+        {
+            commandSet.Add(commandString.Substring(0, commandString.IndexOf(" ")));
+            ParseCommand(ref commandSet, commandString.Substring(commandString.IndexOf(" ") + 1));
         }
     }
 }
